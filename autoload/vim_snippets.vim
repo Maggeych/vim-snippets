@@ -19,6 +19,16 @@ fun! vim_snippets#Filename(...)
   endif
 endf
 
+fun! vim_snippets#GuardName(...)
+  let basename = substitute(substitute(expand('%'), '/', '_', 'g'), '\.', '_', 'g')
+
+  if basename == ''
+    return 'UNTITLED_H_'
+  else
+    return basename . '_'
+  endif
+endf
+
 " original code:
 " fun! Filename(...)
 "     let filename = expand('%:t:r')
